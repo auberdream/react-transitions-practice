@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { CSSTransitionGroup } from 'react-transition-group';
+import Styles from './resources/todolist.css'
 
 class ToDoList extends Component {
   constructor() {
@@ -34,7 +36,12 @@ class ToDoList extends Component {
       <div className="todolist">
         <input type="text" onChange={ this.handleChange } />
         <input type="submit" onClick={ this.handleClick } />
-        { items }
+        <CSSTransitionGroup
+          transitionName="example"
+          transitionEnterTimeout={500}
+          transitionLeaveTimeout={300}>
+          { items }
+        </CSSTransitionGroup>
       </div>
     );
   }
