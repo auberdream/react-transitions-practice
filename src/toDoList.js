@@ -23,10 +23,18 @@ class ToDoList extends Component {
   }
 
   render() {
+
+    const items = this.state.items.map((item, key) => (
+      <div key={key}>
+        {item}
+      </div>
+    ))
+
     return (
       <div className="todolist">
         <input type="text" onChange={ this.handleChange } />
         <input type="submit" onClick={ this.handleClick } />
+        { items }
       </div>
     );
   }
